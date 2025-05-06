@@ -1,6 +1,7 @@
 package com.egci428.ex01_lifecycle
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +17,25 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val resultText = findViewById<EditText>(R.id.resultText)
+
+        var bundle = intent.extras
+        var result:String =  ""
+
+        if (bundle != null) {
+            result = bundle.getString("input").toString()
+        }
+        resultText.setText(result)
     }
 }
+
+
+
+
+
+
+
+
+
+
