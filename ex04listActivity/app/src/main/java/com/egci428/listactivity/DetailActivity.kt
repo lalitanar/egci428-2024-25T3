@@ -19,7 +19,7 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val titleText = findViewById<TextView>(R.id.titleText)
         val courseTitle = intent.getStringExtra("courseTitle")
@@ -29,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
-    /*override fun onContextItemSelected(item: MenuItem): Boolean {
+    override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
                 finish()
@@ -38,6 +38,6 @@ class DetailActivity : AppCompatActivity() {
             }
         }
         return super.onContextItemSelected(item)
-    }*/
+    }
 
 }
