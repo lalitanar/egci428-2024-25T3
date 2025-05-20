@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.util.Arrays
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,9 +70,30 @@ class MainActivity : AppCompatActivity() {
 
         val listItem = arrayOf("C","C++","Python", "Java")
         val selCheckItem = BooleanArray(listItem.size)
-        val selectItem = mutableListOf(listItem)
+        val selectItem = mutableListOf(*listItem)
+        
         selectBtn.setOnClickListener {
-
+            selectTextView.text = null
+            val selectBuilder = AlertDialog.Builder(this)
+            selectBuilder.setTitle("Choose the programming languages")
+            selectBuilder.setIcon(R.drawable.ic_launcher_background)
+            selectBuilder.setMultiChoiceItems(listItem,selCheckItem){ dialog, which, isChecked ->
+                selCheckItem[which] = isChecked
+                
+            }
+            selectBuilder.setCancelable(false)
+            selectBuilder.setPositiveButton("Done") { dialog, which ->
+                for (i in selCheckItem.indices){
+                    if(selCheckItem[i]){
+                        selectTextView.text = String.format("%s%s, ", selectTextView.text, selectItem[i])
+                    }
+                }
+            }
+            selectBuilder.setNegativeButton("clear all") { dialog, which ->
+                Arrays.fill(selCheckItem, false)
+            }
+            val selectDialog = selectBuilder.create()
+            selectDialog.show()
         }
     }
 }
