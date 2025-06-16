@@ -5,4 +5,10 @@ package com.egci428.ex15_basicsqlite
 */
 
 class Comment {
+    var id: Long = 0
+    var message: String = ""
+
+    override fun toString(): String {
+        return message.toString()
+    }
 }

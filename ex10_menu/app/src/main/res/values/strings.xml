@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ex10_menu</string>
+    <string name="go_to_detail_page">Go to Detail Page</string>
+    <string name="main_page">Main Page</string>
+</resources>

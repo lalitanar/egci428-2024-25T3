@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     class MyCustomAdapter(context:Context): BaseAdapter() {
-        private val wordList = arrayListOf("ant", "bat","cat","dog")
+        //private val wordList = arrayListOf("ant", "bat","cat","dog")
 
         private val mContext:Context
         init {
@@ -56,11 +56,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            return wordList.size
+            return 10
+            //return wordList.size
         }
 
         override fun getItem(position: Int): Any {
-            return  wordList[position]
+            return  "Here is my listView"
+            //return  wordList[position]
         }
 
         override fun getItemId(position: Int): Long {
@@ -83,7 +85,9 @@ class MainActivity : AppCompatActivity() {
                 aRow = convertView
             }
             val viewHolder = aRow.tag as ViewHolder
-            viewHolder.nameTextView.text = wordList[position]
+
+            viewHolder.nameTextView.text = "Here is my listView"
+            //viewHolder.nameTextView.text = wordList[position]
             viewHolder.positionTextView.text = "Row No.: ${position}"
 
             if (position%2 == 0){
@@ -93,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-            aRow.setOnClickListener {
+            /*aRow.setOnClickListener {
 
                 aRow.animate().setDuration(1500).alpha(0F).withEndAction(
                     Runnable {
@@ -103,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
                 //Toast.makeText(mContext,wordList[position], Toast.LENGTH_SHORT).show()
-            }
+            }*/
 
 
             return aRow
