@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.egci428.ex19_camerauri"
+    namespace = "com.egci428.ex17_photo"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.egci428.ex19_camerauri"
+        applicationId = "com.egci428.ex17_photo"
         minSdk = 31
         targetSdk = 35
         versionCode = 1
@@ -32,9 +32,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
-    }
-    buildFeatures {
-        buildConfig = true
     }
 }
 
