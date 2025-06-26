@@ -3,6 +3,7 @@ package com.egci428.ex19_camerauri
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         if(isSuccess) {
             //takePicture.launch(null)
             takePicture()
+            Log.d("Take Picture", "Permission granted")
         } else {
             Toast.makeText(applicationContext, "Camera has no permission", Toast.LENGTH_SHORT).show()
         }
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                     uri ->
                 if(uri != null) {
                     imageView.setImageURI(uriKey)
+                    Log.d("Capture Image",uriKey.toString())
                 }
             }
         }
